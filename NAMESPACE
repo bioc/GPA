@@ -1,0 +1,13 @@
+useDynLib(GPA)
+
+import( methods, graphics, Rcpp, parallel, shiny, shinyBS, vegan, ggplot2, ggrepel, plyr )
+
+importFrom("grDevices", "dev.off", "palette", "pdf")
+importFrom("stats", "cutree", "dbeta", "dist", "hclust", "kmeans","pchisq")
+importFrom("utils", "combn", "str")
+
+export( GPA, assoc, aTest, pTest )
+
+export( show, print, fdr, cov, estimates, se )
+
+export( fitAll, shinyGPA )
