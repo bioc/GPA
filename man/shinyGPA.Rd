@@ -20,8 +20,9 @@ shinyGPA( out=NULL )
 Provides visualization to investigate pleiotropic architecture using GWAS results.
 }
 \references{
-Kortemeier E, Ramos PS, Hunt KJ, Kim HJ, Hardiman G, and Chung D (2017),
-"ShinyGPA: An interactive and dynamic visualization toolkit for genetic studies."
+Kortemeier E, Ramos PS, Hunt KJ, Kim HJ, Hardiman G, and Chung D (2018),
+"ShinyGPA: An interactive and dynamic visualization toolkit for genetic studies,"
+PLOS One, 13(1): e0190949.
 }
 \author{ Dongjun Chung, Emma Kortemeier }
 \seealso{

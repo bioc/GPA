@@ -1,5 +1,5 @@
-\name{mosaics-internal}
-\title{Internal mosaics objects}
+\name{GPA-internal}
+\title{Internal GPA objects}
 \alias{.covGPA}
 \alias{.ff_emStep}
 \description{Internal GPA objects.}
