@@ -29,7 +29,6 @@ PLOS One, 13(1): e0190949.
 \code{\link{fitAll}}.
 }
 \examples{
-\dontrun{
 
 # simulator function
 
@@ -59,12 +58,12 @@ pmat[,5] <- simulator( c(801:1000), nsnp=nsnp, alpha=alpha )
 
 # Fit GPA for all possible pairs of GWAS datasets
 
-out <- fitAll( pmat )
+out <- fitAll( pmat, maxIter = 100 )
 
 # Run the ShinyGPA app using the ouput from fitAll()
 
-shinyGPA(out)
-}
+# shinyGPA(out)
+
 }
 \keyword{models}
 \keyword{methods}

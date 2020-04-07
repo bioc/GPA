@@ -10,7 +10,7 @@
 \alias{cov}
 \alias{estimates}
 \alias{se}
-\Rdversion{1.1}
+\Rdversion{0.99.3}
 \docType{class}
 \title{Class "GPA" }
 \description{

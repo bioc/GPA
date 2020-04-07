@@ -4,7 +4,7 @@
 setClass( Class="GPA",
     representation=representation(
         fit="list",
-		setting="list",
+		    setting="list",
         gwasPval="matrix",
         annMat="matrix"
     )

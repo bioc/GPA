@@ -4,10 +4,10 @@ shinyGPA <- function(out=NULL){
   smat <- out$pTestPval
   pmat <- out$pmat
   if (is.null(rownames(pmat))) {
-    rownames(pmat) <- paste("SNP_",1:nrow(pmat),sep="")
+    rownames(pmat) <- paste("SNP_",seq_len(nrow(pmat)),sep="")
   }
   if (is.null(colnames(pmat))) {
-    colnames(pmat) <- paste("GWAS_",1:ncol(pmat),sep="")
+    colnames(pmat) <- paste("GWAS_",seq_len(ncol(pmat)),sep="")
     rownames(smat) <- colnames(smat) <- colnames(pmat)
   }
 
@@ -34,7 +34,9 @@ shinyGPA <- function(out=NULL){
         conditionalPanel( "output.fileUploaded",
                           checkboxGroupInput(inputId="checkGroup",
                                              label="Choose phenotypes",
-                                             choices = list("1" = 1, "2" = 2, "3" = 3),
+                                             choices = list("1" = 1,
+                                                            "2" = 2,
+                                                            "3" = 3),
                                              inline=TRUE,
                                              selected = 1
                           )
@@ -74,7 +76,8 @@ shinyGPA <- function(out=NULL){
 
                                    selectInput(inputId="clustertype",
                                                label="Type of clustering",
-                                               choices= list("K-means", "Hierarchical"),
+                                               choices= list("K-means",
+                                                             "Hierarchical"),
                                                selected=1),
 
                                    uiOutput("clusterdeets")
@@ -85,13 +88,17 @@ shinyGPA <- function(out=NULL){
 
                    bsCollapsePanel("Lambda Details",
 
-                                   numericInput('lowLam', 'Lower Lambda Value', -1, min = -100, max = 100),
+                                   numericInput('lowLam', 'Lower Lambda Value',
+                                                -1, min = -100, max = 100),
 
-                                   numericInput('highLam', 'Upper Lambda Value', 1, min = -100, max = 100),
+                                   numericInput('highLam', 'Upper Lambda Value',
+                                                1, min = -100, max = 100),
 
-                                   numericInput('setLam', 'Default Lambda Value', 0, min = -100, max = 100),
+                                   numericInput('setLam', 'Default Lambda Value',
+                                                0, min = -100, max = 100),
 
-                                   numericInput('stepLam', 'Lambda Value Increments', 0.01, min = -100, max = 100)
+                                   numericInput('stepLam', 'Lambda Value Increments',
+                                                0.01, min = -100, max = 100)
                    ))
 
 
@@ -183,7 +190,7 @@ shinyGPA <- function(out=NULL){
       #dataname <- load(inFile$datapath)
       #smat <- get(dataname[1])
       if ( is.null(colnames(smat)) ) {
-        colnames(smat) <- paste("V",1:ncol(smat),sep="")
+        colnames(smat) <- paste("V",seq_len(ncol(smat)),sep="")
       }
 
       low<- input$lowLam
@@ -284,7 +291,7 @@ shinyGPA <- function(out=NULL){
       dd[ dd == -Inf ] <- 1.5 * ddmin
       dd <- dd - 2 * ddmin
 
-      a <- as.list(1:ncol(gpa.sel))
+      a <- as.list(seq_len(ncol(gpa.sel)))
 
 
       #dimensional scaling
@@ -314,7 +321,8 @@ shinyGPA <- function(out=NULL){
         geom_point(aes(.data$PC1, .data$PC2),
                    color = clusterCols(),
                    size=4, shape=(clusterCols()+14)) +
-        geom_text_repel(aes(.data$PC1, .data$PC2), label = rownames(plotdata), size=input$fontsize) +
+        geom_text_repel(aes(.data$PC1, .data$PC2), label = rownames(plotdata),
+                            size=input$fontsize) +
         theme_bw() +
         theme(panel.grid.major= element_blank(),
               panel.grid.minor=element_blank()
@@ -343,7 +351,7 @@ shinyGPA <- function(out=NULL){
       str(input$plot_brush)
     })
 
-    output$plot_brushed_points <- DT::renderDataTable({
+    output$plot_brushed_points <- renderDataTable({
 
       gpa.sel <- data()[ match( input$checkGroup, colnames(data()) ),
                          match( input$checkGroup, colnames(data()) ) ]
@@ -360,7 +368,7 @@ shinyGPA <- function(out=NULL){
       dd[ dd == -Inf ] <- 1.5 * ddmin
       dd <- dd - 2 * ddmin
 
-      a <- as.list(1:ncol(gpa.sel))
+      a <- as.list(seq_len(ncol(gpa.sel)))
 
 
       #dimensional scaling
@@ -373,7 +381,8 @@ shinyGPA <- function(out=NULL){
 
       # dat <- as.data.frame(cbind( plotdata, gpa.sel ))
 
-      res <- brushedPoints(plotdata, input$plot_brush , xvar="PC1", yvar="PC2", allRows=TRUE)
+      res <- brushedPoints(plotdata, input$plot_brush , xvar="PC1",
+                           yvar="PC2", allRows=TRUE)
       #problem with the x and y variables
 
       res

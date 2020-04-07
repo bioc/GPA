@@ -52,7 +52,14 @@ $~^9$ VA Cooperative Studies Program Coordinating Center, West Haven, CT, USA.
 %\VignettePackage{GPA}
 \maketitle
 
-%\tableofcontents
+\tableofcontents
+
+\section{Installation}
+<<installation,eval=FALSE,results=hide>>=
+if(!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("GPA")
+@
 
 \section{Overview}
 
@@ -285,5 +292,11 @@ by integrating pleiotropy information and annotation data.''
 affecting genes with brain function.''
 \textit{PLoS Genetics}, 6: e1001097.
 \end{thebibliography}
+
+\section{Session Info}
+
+<<session-inf,results=verbatim>>=
+sessionInfo()
+@
 
 \end{document}

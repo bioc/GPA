@@ -67,23 +67,19 @@ simulator <- function( risk.ind, nsnp=20000, alpha=0.6 ) {
 # run simulation
 
 set.seed(12345)
-nsnp <- 10000
+nsnp <- 1000
 alpha <- 0.4
 pmat <- matrix( NA, nsnp, 5 )
 
-pmat[,1] <- simulator( c(1:2000), nsnp=nsnp, alpha=alpha )
-pmat[,2] <- simulator( c(501:2500), nsnp=nsnp, alpha=alpha )
-pmat[,3] <- simulator( c(4001:6000), nsnp=nsnp, alpha=alpha )
-pmat[,4] <- simulator( c(4501:7500), nsnp=nsnp, alpha=alpha )
-pmat[,5] <- simulator( c(8001:10000), nsnp=nsnp, alpha=alpha )
+pmat[,1] <- simulator( c(1:200), nsnp=nsnp, alpha=alpha )
+pmat[,2] <- simulator( c(51:250), nsnp=nsnp, alpha=alpha )
+pmat[,3] <- simulator( c(401:600), nsnp=nsnp, alpha=alpha )
+pmat[,4] <- simulator( c(451:750), nsnp=nsnp, alpha=alpha )
+pmat[,5] <- simulator( c(801:1000), nsnp=nsnp, alpha=alpha )
 
 # Fit GPA for all possible pairs of GWAS datasets
 
-out <- fitAll( pmat )
-
-# Run the ShinyGPA app using the ouput from fitAll()
-
-# shinyGPA(out)
+out <- fitAll( pmat, maxIter = 100 )
 
 }
 \keyword{models}

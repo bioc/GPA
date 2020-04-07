@@ -118,17 +118,17 @@ ann <- as.matrix(ann,ncol = 1)
 
 # GPA without annotation data
 
-fit.GPA.noAnn <- GPA( pmat, NULL )
+fit.GPA.noAnn <- GPA( pmat, NULL, maxIter = 100 )
 cov.GPA.noAnn <- cov( fit.GPA.noAnn )
 		
 # GPA with annotation data
 
-fit.GPA.wAnn <- GPA( pmat, ann )
+fit.GPA.wAnn <- GPA( pmat, ann, maxIter = 100 )
 cov.GPA.wAnn <- cov( fit.GPA.wAnn )
 
 # GPA under the null hypothesis of pleiotropy test
 
-fit.GPA.pleiotropy.H0 <- GPA( pmat, NULL, pleiotropyH0=TRUE )
+fit.GPA.pleiotropy.H0 <- GPA( pmat, NULL, pleiotropyH0=TRUE, maxIter = 100 )
 
 }
 \keyword{models}

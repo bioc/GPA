@@ -27,7 +27,7 @@ class?GPA
 Development
 ===========
 
-To install the development version of GPA, it's easiest to use the 'devtools' package. Note that GPA depends on the 'Rcpp' package, which also requires appropriate setting of Rtools and Xcode for Windows and Mac OS/X, respectively.
+To install the development version of GPA, it's easiest to use the 'devtools' package. Note that GPA depends on the 'Rcpp' package, which also requires appropriate setting of Rtools and Xcode for Windows and Mac OS/X, respectively. GPA also requires GNU Make, details of which can be found at https://www.gnu.org/software/make/. 
 
 ```
 #install.packages("devtools")

@@ -70,11 +70,11 @@ pmat[,5] <- simulator( c(801:1000), nsnp=nsnp, alpha=alpha )
 
 # GPA without annotation data
 
-fit.GPA.noAnn <- GPA( pmat, NULL )
+fit.GPA.noAnn <- GPA( pmat, NULL, maxIter = 100 )
 
 # GPA under the null hypothesis of pleiotropy test
 
-fit.GPA.pleiotropy.H0 <- GPA( pmat, NULL, pleiotropyH0=TRUE )
+fit.GPA.pleiotropy.H0 <- GPA( pmat, NULL, pleiotropyH0=TRUE, maxIter = 100 )
 
 # hypothesis testing for pleiotropy
 

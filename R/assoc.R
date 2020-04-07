@@ -25,20 +25,22 @@ setMethod(
   		if ( fdrControl == "local" ) {
   		# local FDR control
 
-  			message( "Info: Association mapping based on the local FDR control at level ", FDR, "." )
+  			message( "Info: Association mapping based on the local FDR control at level ",
+        FDR, "." )
 
   			amat[ fdrmat <= FDR ] <- 1
   		} else if ( fdrControl == "global" ) {
   			# global FDR control
 
-  			message( "Info: Association mapping based on the global FDR control at level ", FDR, "." )
+  			message( "Info: Association mapping based on the global FDR control at level ",
+        FDR, "." )
 
   			# direct approach for FDR control
 
-  			for ( j in 1:ncol(amat) ) {
+  			for ( j in seq_len(ncol(amat)) ) {
   				pp <- fdrmat[,j]
   				pp.ordered <- sort(pp)
-  				pp.cum <- cumsum( pp.ordered ) / c(1:length(pp))
+  				pp.cum <- cumsum( pp.ordered ) / c(seq_len(length(pp)))
   				cutoff <- max( pp.ordered[ pp.cum <= FDR ] )
   				amat[ pp <= cutoff, j ] <- 1
   			}
@@ -51,19 +53,21 @@ setMethod(
       if ( fdrControl == "local" ) {
         # local FDR control
 
-        message( "Info: Association mapping based on the local FDR control at level ", FDR, "." )
+        message( "Info: Association mapping based on the local FDR control at level ",
+        FDR, "." )
 
         amat[ fdrmat <= FDR ] <- 1
       } else if ( fdrControl == "global" ) {
         # global FDR control
 
-        message( "Info: Association mapping based on the global FDR control at level ", FDR, "." )
+        message( "Info: Association mapping based on the global FDR control at level ",
+        FDR, "." )
 
         # direct approach for FDR control
 
         pp <- fdrmat
         pp.ordered <- sort(pp)
-        pp.cum <- cumsum( pp.ordered ) / c(1:length(pp))
+        pp.cum <- cumsum( pp.ordered ) / c(seq_len(length(pp)))
         cutoff <- max( pp.ordered[ pp.cum <= FDR ] )
         amat[ pp <= cutoff ] <- 1
 

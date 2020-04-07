@@ -86,7 +86,7 @@ pmat[,5] <- simulator( c(801:1000), nsnp=nsnp, alpha=alpha )
 ann <- rbinom(n = nrow(pmat), size = 1, prob = 0.15)
 ann <- as.matrix(ann,ncol = 1)
 
-fit.GPA.wAnn <- GPA( pmat, ann )
+fit.GPA.wAnn <- GPA( pmat, ann , maxIter = 100 )
 cov.GPA.wAnn <- cov( fit.GPA.wAnn )
 assoc.GPA.wAnn <- assoc( fit.GPA.wAnn, FDR=0.05, fdrControl="global" )
 
