@@ -5,7 +5,6 @@ import( methods, graphics, Rcpp, parallel, shiny, shinyBS, vegan, ggplot2, ggrep
 importFrom("grDevices", "dev.off", "palette", "pdf")
 importFrom("stats", "cutree", "dbeta", "dist", "hclust", "kmeans","pchisq")
 importFrom("utils", "combn", "str")
-importFrom("DT", "renderDataTable")
 
 export( GPA, assoc, aTest, pTest )
 
