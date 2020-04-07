@@ -351,7 +351,7 @@ shinyGPA <- function(out=NULL){
       str(input$plot_brush)
     })
 
-    output$plot_brushed_points <- renderDataTable({
+    output$plot_brushed_points <- DT::renderDataTable({
 
       gpa.sel <- data()[ match( input$checkGroup, colnames(data()) ),
                          match( input$checkGroup, colnames(data()) ) ]
