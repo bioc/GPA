@@ -15,8 +15,8 @@ the pleiotropic architecture using GWAS results.
 \tabular{ll}{
 Package: \tab GPA\cr
 Type: \tab Package\cr
-Version: \tab 1.1.0\cr
-Date: \tab 2017-06-30\cr
+Version: \tab 0.99.9\cr
+Date: \tab 2020-04-14\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
