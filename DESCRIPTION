@@ -1,6 +1,6 @@
 Package: GPA
 Type: Package
-Version: 0.99.9
+Version: 1.0.0
 Date: 2020-02-24
 Title: GPA (Genetic analysis incorporating Pleiotropy and Annotation)
 Author: Dongjun Chung, Emma Kortemeier, Carter Allen
